@@ -1,0 +1,3 @@
+pyaudio=0.2.7
+speechrecognition=3.6.0
+google-api-python-client=1.6.2
