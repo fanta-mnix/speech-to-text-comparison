@@ -17,7 +17,7 @@ if __name__ == '__main__':
         r = sr.Recognizer()
         audio = r.record(source) 
         
-        print("Processing audio for Bing")
+        print("Bing...")
         try:
             text = r.recognize_bing(audio, key=BING_KEY, language='pt-BR')
             print("Microsoft Bing Voice Recognition thinks you said:\n" + text)
@@ -26,6 +26,7 @@ if __name__ == '__main__':
         except sr.RequestError as e:
             print("Could not request results from Microsoft Bing Voice Recognition service; {0}".format(e))
 
+        print("\n\nGoogle...")
         try:
             text = r.recognize_google_cloud(audio, credentials_json=GOOGLE_CLOUD_SPEECH_CREDENTIALS, language='pt-BR')
             print("Google Cloud Speech thinks you said:\n" + text)
@@ -34,7 +35,7 @@ if __name__ == '__main__':
         except sr.RequestError as e:
             print("Could not request results from Google Cloud Speech service; {0}".format(e))
 
-        # recognize speech using IBM Speech to Text
+        print("\n\nWatson...")
         try:
             text = r.recognize_ibm(audio, username=IBM_USERNAME, password=IBM_PASSWORD, language='pt-BR')
             print("IBM Speech to Text thinks you said:\n" + text)
